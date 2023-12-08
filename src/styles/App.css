@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url('./../../public/earth-space.gif');
+  background-size: cover;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
 }
 
 .App-logo {

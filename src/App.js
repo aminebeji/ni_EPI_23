@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import "./styles/App.css";
+import { TranslationsContext } from "./services/NI_23";
+import NavBar from "./components/NavBar";
+import TextAnimation from "./components/TextAnimation";
 
 function App() {
+  var { currentLanguage, setLanguage, translate, updateLanguagesPath } =
+    useContext(TranslationsContext);
+  useEffect(() => {
+    updateLanguagesPath({
+      en: require("./services/data/en.json"),
+      fr: require("./services/data/fr.json"),
+      es: require("./services/data/es.json"),
+      de: require("./services/data/de.json"),
+      ar: require("./services/data/ar.json"),
+      zh : require("./services/data/zh.json")
+    });
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <TextAnimation direction="left" text={translate("par1")} />
+      <TextAnimation direction="right" text={translate("par2")} />
+      <TextAnimation direction="left" text={translate("par3")} />
     </div>
   );
 }

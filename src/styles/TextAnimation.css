@@ -1,0 +1,8 @@
+.Text-animated {
+    margin: 2em 0;
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px;
+}
